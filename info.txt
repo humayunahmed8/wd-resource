@@ -1,0 +1,26 @@
+Universal selector (*) specificity - 0
+Count the number of Elements and Pesudo elements (c) - 1
+Count the number of Classes, attributes, Pseudo classes (b) - 10
+Count the number of IDs (a) - 100
+Inline CSS - 1000
+!important - 10000
+
+a = number of id,
+b = number of classes, pseudo-classes, attributes 
+c = number of elements, pseudo elements
+
+
+*               /* a=0 b=0 c=0 -> specificity =   0 */
+LI              /* a=0 b=0 c=1 -> specificity =   1 */
+UL LI           /* a=0 b=0 c=2 -> specificity =   2 */
+UL OL+LI        /* a=0 b=0 c=3 -> specificity =   3 */
+H1 + *[REL=up]  /* a=0 b=1 c=1 -> specificity =  11 */
+UL OL LI.red    /* a=0 b=1 c=3 -> specificity =  13 */
+LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
+#x34y           /* a=1 b=0 c=0 -> specificity = 100 */
+#s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
+
+
+
+https://specificity.keegan.st
+https://www.w3.org/TR/selectors-3/#specificity
