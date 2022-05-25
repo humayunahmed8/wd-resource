@@ -5,98 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Specificity</title>
-
     <style>
+        * {
+            color: red;
+        }
+        /* a = 0, b = 0, c = 1  */
+        h2 {
+            color: blue;
+        }
+        /* a = 0, b = 1, c = 0*/
+        .heading {
+            color: gold;
+        }
+        /* a = 1, b = 0, c = 0*/
+        #heading {
+            color: tomato;
+        }
+        /* a = 0, b = 1, c = 1*/
+        h2.heading {
+            color: green;
+        }
+        /* a = 1, b = 0, c = 1*/
+        h2#heading {
+            color: violet;
+        }
+        /* a = 1, b = 1, c = 1*/
+        h2#heading:hover {
+            color: red;
+        }
 
-        /* 
+        /*
         a = number of id,
         b = number of classes, pseudo-classes, attributes 
         c = number of elements, pseudo elements
         */
-        /* #HeadingTwo {
-            color: violet;
-        } */
-
-        /* 
-        class = 10
-        element = 01
-        element+pseudo class = 11
-        element+pseudo element = 11
-        id = 100
-
-        */
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: green;
-        }
-
-        /* a = 0, b = 1, c = 0 = 010   */
-        .headingTwo {
-            color: blue;
-        }
-
-        /* a = 0, b = 2, c = 0 = 020   */
-        /* .headingTwo.color {
-            color: green;
-        } */
-
-        /* a = 0, b= 0, c = 1 = 001 */
-        h2 {
-            color: red;
-        }
 
 
-        /* a = 0, b = 1, c = 1 = 011 */
-        :hover {
-            color: blue;
-        }
-
-        h2::after {
-            color: blue;
-        }
-
-        /* a = 0, b = 1, c = 1  */
-
-        input[type="text"] {
-
-        }
-
-        #heading {
-
-        }
-
-
-        nav {
-            padding: 10px!important;
-        }
-
-        .menu nav {
-            padding: 10px;
-        }
-
-        /* a = 1, b = 1, c = 2 
-        ul#primary-nav li.active {
-
-        } */
-
-        #heading {
-            background-color: red;
-            width: min(50%, 600px);
-            color: #fff;
-        }
-
-        
-
-        
     </style>
 </head>
 <body>
 
-    <h2 class="headingTwo color" id="heading">Lorem ipsum dolor sit amet.</h2>
+    <h2 class="heading" id="heading" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, aperiam.</h2>
     
 </body>
 </html>
